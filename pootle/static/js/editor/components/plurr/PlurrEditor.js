@@ -84,12 +84,14 @@ const PlurrEditor = React.createClass({
   },
 
   handleParamChange(key, value) {
+    console.log('Handling change');
     const params = Object.assign({}, this.state.params, { [key]: value });
     paramsCache.set(key, value);
     this.setState({ params });
   },
 
   render() {
+    console.log('Rendering change');
     const { value } = this.props;
     const [params, exception] = this.extractParamsFrom(value);
 
@@ -108,6 +110,7 @@ const PlurrEditor = React.createClass({
         // Plurr mutates the params object, let's pass a copy around to avoid
         // unexpected rendering surprises (Plurr#10)
         const paramsCopy = Object.assign({}, params);
+        console.log(paramsCopy);
         renderedValue = this.plurr.format(value, paramsCopy, {
           locale: this.context.currentLocaleCode,
         });
