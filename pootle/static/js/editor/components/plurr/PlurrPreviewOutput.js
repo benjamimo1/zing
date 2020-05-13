@@ -43,14 +43,15 @@ const PlurrPreviewOutput = React.createClass({
       currentLocaleDir = 'ltr';
       currentLocaleCode = 'en';
 
-      if (this.props.errorMsg) {
-        console.log(this.props.errorMsg);
+      if (this.props.errorMsg !== '') {
+        console.log('Error msg', this.props.errorMsg);
         style.itemBlock.color = '#c30';
         output = this.props.errorMsg;
         if (this.context.currentLocaleDir === 'rtl') {
           style.itemBlock.marginTop = '1.5em';
         }
       } else {
+        console.log('value not detected');
         style.itemBlock.color = '#999';
         output =
           'Please enter placeholder values above to see the rendered message.';

@@ -78,6 +78,7 @@ const PlurrEditor = React.createClass({
       };
       this.plurr.format(value, {}, opts);
     } catch (e) {
+      console.log('FOUND EXCEPTION');
       exception = e;
     }
 
@@ -93,6 +94,7 @@ const PlurrEditor = React.createClass({
   render() {
     const { value } = this.props;
     const [params, exception] = this.extractParamsFrom(value);
+    console.log(params, exception);
 
     const hasParams = Object.keys(params).length > 0;
     const hasAllValues = Object.keys(params).reduce(
@@ -104,7 +106,7 @@ const PlurrEditor = React.createClass({
 
     // Not using `null` because prop validation would fail (facebook/react#2166)
     let renderedValue = '';
-    //Here we check if the values entered are correct, IDEA: include the 0 here
+    //Here we check if the values entered are correct, IDEA: include the 0 here. Here is the bug
     let errorMsg = exception !== null ? exception.message : '';
 
     if (!errorMsg && hasAllValues) {
