@@ -59,6 +59,7 @@ const PlurrEditor = React.createClass({
     this.plurr = null;
   },
 
+  // HERE IS WHERE EXCEPTIONS ARE DEFINED, EXCLUDE 0
   extractParamsFrom(value) {
     const params = {};
     let exception = null;
@@ -98,6 +99,8 @@ const PlurrEditor = React.createClass({
       (state, key) => state && paramsCache.get(key) !== '',
       true
     );
+
+    console.log('hasAllValues', hasAllValues);
 
     // Not using `null` because prop validation would fail (facebook/react#2166)
     let renderedValue = '';
