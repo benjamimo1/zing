@@ -84,14 +84,12 @@ const PlurrEditor = React.createClass({
   },
 
   handleParamChange(key, value) {
-    console.log('Handling change');
     const params = Object.assign({}, this.state.params, { [key]: value });
     paramsCache.set(key, value);
     this.setState({ params });
   },
 
   render() {
-    console.log('Rendering change');
     const { value } = this.props;
     const [params, exception] = this.extractParamsFrom(value);
 
@@ -103,6 +101,7 @@ const PlurrEditor = React.createClass({
 
     // Not using `null` because prop validation would fail (facebook/react#2166)
     let renderedValue = '';
+    //Here we check if the values entered are correct, IDEA: include the 0 here
     let errorMsg = exception !== null ? exception.message : '';
 
     if (!errorMsg && hasAllValues) {
