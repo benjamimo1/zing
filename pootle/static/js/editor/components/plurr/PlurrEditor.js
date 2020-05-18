@@ -94,7 +94,8 @@ const PlurrEditor = React.createClass({
   render() {
     const { value } = this.props;
     const [params, exception] = this.extractParamsFrom(value);
-    console.log(params, exception);
+    console.log('params', exception);
+    console.log('exception', exception);
 
     const hasParams = Object.keys(params).length > 0;
     const hasAllValues = Object.keys(params).reduce(
@@ -114,7 +115,7 @@ const PlurrEditor = React.createClass({
         // Plurr mutates the params object, let's pass a copy around to avoid
         // unexpected rendering surprises (Plurr#10)
         const paramsCopy = Object.assign({}, params);
-        console.log(paramsCopy);
+        console.log('paramsCopy', paramsCopy);
         renderedValue = this.plurr.format(value, paramsCopy, {
           locale: this.context.currentLocaleCode,
         });

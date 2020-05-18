@@ -37,7 +37,7 @@ const PlurrPreviewOutput = React.createClass({
 
     let output;
     if (this.props.value === '') {
-      console.log('Preview', this.props, this.state);
+      console.log('props.value === "" ', this.props.value);
       style.itemBlock.fontStyle = 'italic';
 
       currentLocaleDir = 'ltr';
