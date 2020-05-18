@@ -31,6 +31,8 @@ const PlurrPreview = React.createClass({
       },
     };
 
+    console.log('this.props.value', this.props.value);
+
     return (
       <div style={style.previewBlock}>
         <PlurrHelp />

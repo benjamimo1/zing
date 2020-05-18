@@ -149,6 +149,7 @@ const PlurrEditor = React.createClass({
             errorMsg={errorMsg}
             onChange={this.handleParamChange}
             params={params}
+            //Here there might be a problem since 0 triggers a "" value
             value={renderedValue}
           />
         )}
