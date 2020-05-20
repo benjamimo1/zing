@@ -47,6 +47,7 @@ const PlurrPreviewOutput = React.createClass({
           style.itemBlock.marginTop = '1.5em';
         }
       } else {
+        console.log('Empty parameter detected');
         style.itemBlock.color = '#999';
         output =
           'Please enter placeholder values above to see the rendered message.';
